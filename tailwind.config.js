@@ -15,6 +15,9 @@ export default {
         "react-lightgray": "#33373E",
         "react-gray": "#282D35",
         "react-black": "#21222A"
+      },
+      backgroundImage: {
+        'react-logo': "url('/src/assets/reactjs-icon 2.svg')",
       }
     },
   },
