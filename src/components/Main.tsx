@@ -1,16 +1,47 @@
-import LiFact from "./LiFact"
+import Hero from "./Hero"
+import Card from "./Card"
+
+import weddingImg from "../assets/wedding-photography.png"
+import swimmerImg from "../assets/swimmer.png"
+import bikeImg from "../assets/mountain-bike.png"
+
+const arr = [
+    {
+        img: weddingImg,
+        country: "USA",
+        isSoldOut: false,
+        price: 125,
+        rating: "5.0",
+        reviewCount: 30,
+        title: "Learn wedding photography"
+    },
+    {
+        img: swimmerImg,
+        country: "USA",
+        isSoldOut: true,
+        price: 139,
+        rating: "5.0",
+        reviewCount: 6,
+        title: "Life lessons with Katie Zaferes"
+    },
+    {
+        img: bikeImg,
+        country: "USA",
+        isSoldOut: false,
+        price: 52,
+        rating: "4.8",
+        reviewCount: 2,
+        title: "Group Mountain Biking"
+    }
+]
 
 export default function Main() {
     return (
-        <main className="bg-react-gray bg-react-logo bg-no-repeat bg-right bg-contain text-white flex flex-col items-center h-[100vh]">
-            <h1 className="text-5xl p-16 font-bold">Fun Facts about React</h1>
-            <ul className="text-3xl flex flex-col gap-8">
-                <LiFact text="Was first released in 2013"></LiFact>
-                <LiFact text="Was originally created by Jordan Walke"></LiFact>
-                <LiFact text="Has well over 200k stars on GitHub"></LiFact>
-                <LiFact text="Is maintained by Meta"></LiFact>
-                <LiFact text="Powers thousands of enterprise apps, including mobile apps"></LiFact>
-            </ul>
+        <main className="flex flex-col items-center">
+            <Hero></Hero>
+            <div className="grid grid-cols-2 md:grid-cols-3">
+                {arr.map(el => <Card {...el}></Card>)}
+            </div>
         </main>
     )
 }
