@@ -40,7 +40,7 @@ export default function Main() {
         <main className="flex flex-col items-center">
             <Hero></Hero>
             <div className="grid grid-cols-2 md:grid-cols-3">
-                {arr.map(el => <Card {...el}></Card>)}
+                {arr.map((el, index) => <Card {...el} key={index}></Card>)}
             </div>
         </main>
     )
