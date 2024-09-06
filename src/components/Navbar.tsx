@@ -1,9 +1,23 @@
-import airbnbLogo from "../assets/airbnb_logo.svg"
+import trollface from "../assets/trollface.svg"
 
 export default function Navbar() {
     return (
-        <nav className="flex flex-row p-5 items-center bg-white border-b-8 border-gray-200 shadow-gray-200 shadow-lg">
-            <img src={airbnbLogo} alt="React Logo" className="h-10" />
+        <nav className="
+                flex 
+                flex-row 
+                p-5
+                md:pl-[5vw]
+                md:pr-[5vw]
+                gap-3 
+                bg-gradient-to-r 
+                from-meme-darkpurple 
+                to-meme-purple 
+                text-white 
+                items-center
+            ">
+            <img src={trollface} alt="React Logo" className="h-8" />
+            <p className="font-bold mr-auto text-lg">Meme Generator</p>
+            <p className="text-sm">React Course - Project 3</p>
         </nav>
     )
 }

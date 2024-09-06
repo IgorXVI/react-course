@@ -1,47 +1,54 @@
-import Hero from "./Hero"
-import Card from "./Card"
-
-import weddingImg from "../assets/wedding-photography.png"
-import swimmerImg from "../assets/swimmer.png"
-import bikeImg from "../assets/mountain-bike.png"
-
-const arr = [
-    {
-        img: weddingImg,
-        country: "USA",
-        isSoldOut: false,
-        price: 125,
-        rating: "5.0",
-        reviewCount: 30,
-        title: "Learn wedding photography"
-    },
-    {
-        img: swimmerImg,
-        country: "USA",
-        isSoldOut: true,
-        price: 139,
-        rating: "5.0",
-        reviewCount: 6,
-        title: "Life lessons with Katie Zaferes"
-    },
-    {
-        img: bikeImg,
-        country: "USA",
-        isSoldOut: false,
-        price: 52,
-        rating: "4.8",
-        reviewCount: 2,
-        title: "Group Mountain Biking"
-    }
-]
+import TextInput from "./TextInput"
+import reactLogo from "../assets/trollface.svg"
 
 export default function Main() {
-    return (
-        <main className="flex flex-col items-center">
-            <Hero></Hero>
-            <div className="grid grid-cols-2 md:grid-cols-3">
-                {arr.map((el, index) => <Card {...el} key={index}></Card>)}
-            </div>
-        </main>
-    )
+  return (
+    <main className="flex flex-col min-h-[90vh] md:mr-[15vw] md:ml-[15vw]">
+      <form action="" className="grid grid-cols-2 gap-2 m-2">
+        <div className="col-span-1">
+          <TextInput
+            id="topTextInput"
+            label="Top text"
+            placeholder="Shut up"
+          ></TextInput>
+        </div>
+        <div className="col-span-1">
+          <TextInput
+            id="bottomTextInput"
+            label="Bottom text"
+            placeholder="And take my money"
+          ></TextInput>
+        </div>
+      </form>
+      <div className="flex flex-col gap-20">
+        <button
+          type="button"
+          className="
+                focus:outline-none 
+                text-white 
+                from-meme-darkpurple 
+                to-meme-purple 
+                bg-gradient-to-r
+                focus:ring-4 
+                focus:ring-purple-300
+                hover:ring-4 
+                hover:ring-purple-300 
+                rounded-md
+                text-xl
+                font-bold 
+                p-5
+                m-2
+                mb-auto
+            "
+        >
+          Get a new meme image
+        </button>
+        <img
+          src={reactLogo}
+          alt="Meme"
+          className="w-[500px] h-auto max-w-[80vw] self-center border border-gray-500 p-5"
+        />
+      </div>
+    </main>
+  )
 }
