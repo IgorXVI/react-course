@@ -1,12 +1,6 @@
 {
   "tabWidth": 2,
   "useTabs": false,
-  "overrides": [
-    {
-      "files": "*.{js,ts,jsx,tsx}",
-      "options": {
-        "semi": false
-      }
-    }
-  ]
+  "semi": false,
+  "singleAttributePerLine": true
 }

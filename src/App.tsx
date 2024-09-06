@@ -6,7 +6,7 @@ function App() {
     <div className="font-sans">
       <Navbar></Navbar>
       <Main></Main>
-    </div >
+    </div>
   )
 }
 
