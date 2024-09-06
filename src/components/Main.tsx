@@ -2,6 +2,7 @@ import TextInput from "./TextInput"
 import reactLogo from "../assets/react.svg"
 import { FormEvent, MouseEventHandler, useState } from "react"
 import memeData from "../assets/memeData.json"
+import MemeImg from "./MemeImg"
 
 export default function Main() {
   const [allMemesData /*setAllMemesData*/] = useState(memeData.data.memes)
@@ -61,18 +62,7 @@ export default function Main() {
           Get a new meme image
         </button>
       </form>
-      <div
-        className="border border-gray-500 p-5 m-5 flex flex-col items-center
-        text-black text-4xl font-extrabold font-mono"
-      >
-        <p>{meme.topText}</p>
-        <img
-          src={meme.randomImg}
-          alt="Meme"
-          className="w-[500px] h-[500px] max-w-[90vw] max-h-[90vh]"
-        />
-        <p>{meme.bottomText}</p>
-      </div>
+      <MemeImg {...meme}></MemeImg>
     </main>
   )
 }
