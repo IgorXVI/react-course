@@ -1,9 +1,9 @@
 import { FormEventHandler } from "react"
 
 export default function TextInput(props: {
-  placeholder: string
   label: string
   id: string
+  value: string
   onInput: FormEventHandler
 }) {
   return (
@@ -16,9 +16,9 @@ export default function TextInput(props: {
       </label>
       <input
         type="text"
+        value={props.value}
         onInput={props.onInput}
         id={props.id}
-        placeholder={props.placeholder}
         className="border border-gray-500 p-2 rounded-md"
       />
     </div>

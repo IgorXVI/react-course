@@ -4,17 +4,24 @@ export default function MemeImg(props: {
   randomImg: string
 }) {
   return (
-    <div
-      className="border border-gray-500 p-5 m-5 flex flex-col items-center
-    text-black text-4xl font-extrabold font-mono"
-    >
-      <p>{props.topText}</p>
+    <div className="relative flex flex-col">
       <img
         src={props.randomImg}
         alt="Meme"
-        className="w-[500px] h-[500px] max-w-[90vw] max-h-[90vh]"
+        className="max-w-[100%] min-w-[50%] rounded-md self-center"
       />
-      <p>{props.bottomText}</p>
+      <p
+        className="absolute w-[80%] text-center left-[50%] translate-x-[-50%] pt-2
+      md:text-6xl text-3xl text-white lett tracking-tighter text-shadow-solid shadow-black top-0"
+      >
+        {props.topText}
+      </p>
+      <p
+        className="absolute w-[80%] text-center left-[50%] translate-x-[-50%] pb-2
+      md:text-6xl text-3xl text-white lett tracking-tighter text-shadow-solid shadow-black bottom-0"
+      >
+        {props.bottomText}
+      </p>
     </div>
   )
 }

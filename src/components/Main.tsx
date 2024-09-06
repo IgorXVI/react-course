@@ -39,7 +39,7 @@ export default function Main() {
           <TextInput
             id="topTextInput"
             label="Top text"
-            placeholder="Shut up"
+            value={meme.topText}
             onInput={handleInput("topText")}
           ></TextInput>
         </div>
@@ -47,7 +47,7 @@ export default function Main() {
           <TextInput
             id="bottomTextInput"
             label="Bottom text"
-            placeholder="And take my money"
+            value={meme.bottomText}
             onInput={handleInput("bottomText")}
           ></TextInput>
         </div>
