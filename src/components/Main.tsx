@@ -1,17 +1,22 @@
 import TextInput from "./TextInput"
 import reactLogo from "../assets/react.svg"
-import { FormEvent, MouseEventHandler, useState } from "react"
-import memeData from "../assets/memeData.json"
+import { FormEvent, MouseEventHandler, useEffect, useState } from "react"
 import MemeImg from "./MemeImg"
 
 export default function Main() {
-  const [allMemesData /*setAllMemesData*/] = useState(memeData.data.memes)
+  const [allMemesData, setAllMemesData] = useState([{ url: "" }])
 
   const [meme, setMeme] = useState({
     topText: "Top text",
     bottomText: "Bottom text",
     randomImg: reactLogo,
   })
+
+  useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then((response) => response.json())
+      .then((json) => setAllMemesData(json.data.memes))
+  }, [])
 
   const handleClick: MouseEventHandler = (event) => {
     event.preventDefault()

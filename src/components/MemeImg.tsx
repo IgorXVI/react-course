@@ -14,13 +14,13 @@ export default function MemeImg(props: {
         className="absolute w-[80%] text-center left-[50%] translate-x-[-50%] pt-2
       md:text-6xl text-3xl text-white lett tracking-tighter text-shadow-solid shadow-black top-0"
       >
-        {props.topText}
+        {props.topText.toUpperCase()}
       </p>
       <p
         className="absolute w-[80%] text-center left-[50%] translate-x-[-50%] pb-2
       md:text-6xl text-3xl text-white lett tracking-tighter text-shadow-solid shadow-black bottom-0"
       >
-        {props.bottomText}
+        {props.bottomText.toUpperCase()}
       </p>
     </div>
   )
