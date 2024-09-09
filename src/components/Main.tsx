@@ -1,73 +1,26 @@
-import TextInput from "./TextInput"
-import reactLogo from "../assets/react.svg"
-import { FormEvent, MouseEventHandler, useEffect, useState } from "react"
-import MemeImg from "./MemeImg"
-
-export default function Main() {
-  const [allMemesData, setAllMemesData] = useState([{ url: "" }])
-
-  const [meme, setMeme] = useState({
-    topText: "Top text",
-    bottomText: "Bottom text",
-    randomImg: reactLogo,
-  })
-
-  useEffect(() => {
-    fetch("https://api.imgflip.com/get_memes")
-      .then((response) => response.json())
-      .then((json) => setAllMemesData(json.data.memes))
-  }, [])
-
-  const handleClick: MouseEventHandler = (event) => {
-    event.preventDefault()
-
-    const randomNumber = Math.floor(Math.random() * allMemesData.length)
-
-    const randomMeme = allMemesData[randomNumber]
-
-    setMeme((prev) => ({ ...prev, randomImg: randomMeme.url }))
-  }
-
-  const handleInput = (attr: string) => (event: FormEvent) =>
-    setMeme((prev) => ({
-      ...prev,
-      [attr]: (event.target as HTMLInputElement).value,
-    }))
-
+function Main() {
   return (
-    <main className="flex flex-col min-h-[90vh] md:mr-[15vw] md:ml-[15vw] mt-5">
-      <form
-        action=""
-        className="grid md:grid-cols-2 grid-cols-1 gap-6 m-3"
+    <div
+      className="flex flex-col h-[100%] 
+    dark:text-white items-center p-5 gap-12
+    bg-gradient-to-b from-white to-react-bluesky
+    dark:bg-gradient-to-b dark:from-react-black dark:to-react-lightgray"
+    >
+      <h1 className="text-3xl font-bold text-react-bluesky">
+        Fun facts about React
+      </h1>
+      <ul
+        className="list-inside list-disc flex flex-col 
+      gap-8 text-lg ml-10 mr-10 text-justify"
       >
-        <div className="md:col-span-1">
-          <TextInput
-            id="topTextInput"
-            label="Top text"
-            value={meme.topText}
-            onInput={handleInput("topText")}
-          ></TextInput>
-        </div>
-        <div className="md:col-span-1">
-          <TextInput
-            id="bottomTextInput"
-            label="Bottom text"
-            value={meme.bottomText}
-            onInput={handleInput("bottomText")}
-          ></TextInput>
-        </div>
-        <button
-          type="button"
-          onClick={handleClick}
-          className="focus:outline-none text-white from-meme-darkpurple 
-          to-meme-purple bg-gradient-to-r focus:ring-4 focus:ring-purple-300 
-          hover:ring-4 hover:ring-purple-300 rounded-md text-xl font-bold p-5
-          md:col-span-2"
-        >
-          Get a new meme image
-        </button>
-      </form>
-      <MemeImg {...meme}></MemeImg>
-    </main>
+        <li>Was first released in 2013</li>
+        <li>Was originally created by Jordan Walke</li>
+        <li>Has well over 100K stars on GitHub</li>
+        <li>Is maintained by Facebook</li>
+        <li>Powers thousands of enterprise apps, including mobile apps</li>
+      </ul>
+    </div>
   )
 }
+
+export default Main
